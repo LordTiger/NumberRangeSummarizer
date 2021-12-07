@@ -22,10 +22,10 @@ import java.util.List;
  */
 public interface NumberRangeSummarizer {
 
-    //collect the input
+    //Collect Input
     Collection<Integer> collect(String input);
 
-    //get the summarized string
+    //Get the summarized string
     String summarizeCollection(Collection<Integer> input);
 
 }

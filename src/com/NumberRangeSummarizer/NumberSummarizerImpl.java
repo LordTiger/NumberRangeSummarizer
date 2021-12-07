@@ -5,28 +5,29 @@ import java.util.*;
 public class NumberSummarizerImpl implements NumberRangeSummarizer {
 
     public static void main(String[] args) {
-        NumberSummarizerImpl nr = new NumberSummarizerImpl();
-        String input = "1,3,6,7,8,12,13,14,15,21,22,23,24,31";
-
+        NumberSummarizerImpl num = new NumberSummarizerImpl();
+        String input = "1,3,6,7,8,12,13,14,15,21,22,23,24,31"; // input to Summarize
+        // Try catch statement to test if it can collect and Summarize the input.
         try {
-            Collection<Integer> collectionInput = (List<Integer>)nr.collect(input);
-            String range = nr.summarizeCollection(collectionInput);
+            // Wow it works
+            Collection<Integer> collectionInput = (List<Integer>)num.collect(input);
+            String range = num.summarizeCollection(collectionInput);
 
             System.out.println(range);
         } catch (ClassCastException exc) {
+            // Wow it doesn't
             System.out.println("Please review the string there might be a character");
         }
     }
 
-    /**
-     * Add more comments
-     */
+
     public Collection<Integer> collect(String input) {
         // Separate the Number with ","
         String[] arrayOfString = input.split(",");
         int[] integers  = new int[arrayOfString.length];
 
         for (int i = 0; i < arrayOfString.length; i++) {
+            // Converting Array to Integer Array
             integers [i] = Integer.parseInt(arrayOfString[i]);
         }
 
@@ -35,6 +36,7 @@ public class NumberSummarizerImpl implements NumberRangeSummarizer {
         List<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < integers .length; i++) {
+            //adds to numbers to list
             list.add(integers [i]);
         }
         return list;
@@ -65,7 +67,7 @@ public class NumberSummarizerImpl implements NumberRangeSummarizer {
                 break;
             }
 
-            //Start is the First Element
+            //Start of First Element
             start = (Integer)inputList.get(a);
             next = (Integer)inputList.get(a + 1);
             if (next == start + 1) {
