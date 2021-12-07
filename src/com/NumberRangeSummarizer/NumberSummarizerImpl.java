@@ -6,16 +6,17 @@ public class NumberSummarizerImpl implements NumberRangeSummarizer {
 
     public static void main(String[] args) {
         NumberSummarizerImpl num = new NumberSummarizerImpl();
-        String input = "1,3,6,7,8,12,13,14,15,21,22,23,24,31"; // input to Summarize
+        String input = "101,103,106,107,108,112,113,114,115,121,122,123,124,131"; // input to Summarize (New in hundreds)
+        // String input = "1,3,6,7,8,12,13,14,15,21,22,23,24,31"; Old Input
         // Try catch statement to test if it can collect and Summarize the input.
         try {
-            // Wow it works
+            // Try Block to test if it works.
             Collection<Integer> collectionInput = (List<Integer>)num.collect(input);
             String range = num.summarizeCollection(collectionInput);
 
             System.out.println(range);
         } catch (ClassCastException exc) {
-            // Wow it doesn't
+            // Catch Block to throw an exception if it doesn't
             System.out.println("Please review the string there might be a character");
         }
     }
